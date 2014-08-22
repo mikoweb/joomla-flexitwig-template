@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<author>Rafał Mikołajun</author>
+	<website>vision-web.pl</website>
+	<email>rafal@vision-web.pl</email>
+	<license>GPLv2</license>
+	<version>0.0.1</version>
+	<release>August 2014</release>
+	<description>Twig Template</description>
+</form>
