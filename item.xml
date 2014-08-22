@@ -3,7 +3,7 @@
 	<author>Rafał Mikołajun</author>
 	<website>vision-web.pl</website>
 	<email>rafal@vision-web.pl</email>
-	<license>GPLv2</license>
+	<license>MIT</license>
 	<version>0.0.1</version>
 	<release>August 2014</release>
 	<description>Twig Template</description>
