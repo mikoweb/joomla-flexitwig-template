@@ -1,0 +1,9 @@
+{% extends '@component/com_flexicontent/templates/' ~ template_name ~ '/category_layout.html.twig' %}
+
+{# lista wpisów #}
+{% block items %}
+    {% for item in items %}
+        {% include '@component/com_flexicontent/templates/' ~ template_name ~ '/category_item.html.twig'
+            with { 'item': item, 'params': params, 'fields': item.fields } only %}
+    {% endfor %}
+{% endblock %}
