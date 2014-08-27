@@ -7,4 +7,13 @@
 	<version>0.0.1</version>
 	<release>August 2014</release>
 	<description>Twig Template</description>
+    <fields name="attribs">
+        <fieldset name="attribs">
+            <field name="show_create_date" type="list" default="0" label="FLEXI_SHOWCREATED" description="FLEXI_SHOWCREATED_DESC">
+                <option value="">Use Global</option>
+                <option value="0">Hide</option>
+                <option value="1">Show</option>
+            </field>
+        </fieldset>
+    </fields>
 </form>
