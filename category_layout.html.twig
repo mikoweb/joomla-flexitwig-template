@@ -1,0 +1,13 @@
+{# widok kategorii #}
+<section class="category-view">
+    {# tytuł strony #}
+    {% if params.get('show_page_heading', 1) %}
+        <div class="page-header">
+            <h2>{% spaceless %}{{ params.get('page_heading') }}{% endspaceless %}</h2>
+        </div>
+    {% endif %}
+{% block items %}{% endblock %}
+    {# paginacja #}
+    {{ pagenav.getPagesLinks()|raw }}
+    {#{{ pagenav.getPagesCounter()|raw }}#}
+</section>
