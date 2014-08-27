@@ -1,0 +1,27 @@
+{# widok artykułu #}
+<article class="item-view{% if pageclass_sfx is not empty %} {{ pageclass_sfx }}{% endif %}" role="article">
+    {# pluginy #}
+    {{ item.event.beforeDisplayContent }}
+    {# nagłówek #}
+    {% if params.get('show_page_heading', 1) or params.get('show_title', 1) %}
+        <header class="page-header">
+            {% if params.get('show_create_date') %}
+                {# data #}
+                <time datetime="{{ fields.created.value[0]|date('Y-m-d H:i') }}">{{ fields.created.value[0]|date('d F Y') }}</time>
+            {% endif %}
+            {# tytuł #}
+            {% if params.get('show_page_heading', 1) and params.get('show_title', 1) %}
+                <h2>{% spaceless %}{{ params.get('page_heading') }}{% endspaceless %}</h2>
+                <h3>{% spaceless %}{{ item.title }}{% endspaceless %}</h3>
+            {% else %}
+                <h2 class="itemTitle">{% spaceless %}{{ item.title }}{% endspaceless %}</h2>
+            {% endif %}
+        </header>
+    {% endif %}
+    {# pluginy #}
+    {{ item.event.afterDisplayTitle }}
+    {# Treść #}
+    {{ fields.text.display|raw }}
+    {# pluginy #}
+    {{ item.event.afterDisplayContent }}
+</article>
