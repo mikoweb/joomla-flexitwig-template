@@ -7,4 +7,14 @@
     <version>0.0.1</version>
     <release>August 2014</release>
     <description>Twig Template</description>
+    <fields name="attribs">
+        <fieldset name="attribs">
+            <field name="show_create_date" type="list" default="0" label="FLEXI_SHOWCREATED" description="FLEXI_SHOWCREATED_DESC">
+                <option value="">Use Global</option>
+                <option value="0">Hide</option>
+                <option value="1">Show</option>
+            </field>
+            <field name="text_limit_words" type="text" size="4" default="25" label="FLEXI_TEXT_LIMIT_WORDS" description="FLEXI_TEXT_LIMIT_WORDS_DESC" />
+        </fieldset>
+    </fields>
 </form>
