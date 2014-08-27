@@ -1,0 +1,32 @@
+{# pojedynczy wpis w widoku kategorii #}
+<article class="category-item" role="article">
+    {# pluginy #}
+    {{ item.event.beforeDisplayContent }}
+    {# nagłówek #}
+    {% if params.get('show_title', 1) or params.get('show_create_date', 0) %}
+        <header class="page-header">
+            {% if params.get('show_create_date', 0) %}
+                {# data #}
+                <time datetime="{{ fields.created.value[0]|date('Y-m-d H:i') }}">{{ fields.created.value[0]|date('d F Y') }}</time>
+            {% endif %}
+            {# tytuł #}
+            <h3 class="category-item-title">{% spaceless %}
+                    {% if params.get('link_titles', 0) %}
+                        <a href="{{ flexicontent_route(item.slug, item.categoryslug, 0, item) }}">{{ item.title }}</a>
+                    {% else %}
+                        {{ item.title }}
+                    {% endif %}
+                {% endspaceless %}</h3>
+        </header>
+    {% endif %}
+    {# pluginy #}
+    {{ item.event.afterDisplayTitle }}
+    {# Treść #}
+    <p>{{ fields.text.display|limit_words(params.get('text_limit_words', 25)) }}</p>
+    {# czytaj więcej #}
+    {% if params.get('show_readmore', 1) %}
+        <a class="btn btn-primary" href="{{ flexicontent_route(item.slug, item.categoryslug, 0, item) }}">{{ trans('FLEXI_READ_MORE') }}</a>
+    {% endif %}
+    {# pluginy #}
+    {{ item.event.afterDisplayContent }}
+</article>
