@@ -10,8 +10,8 @@
 defined('_JEXEC') or die;
 defined('RAPID_FRAMEWORK') or die('Joomla! Rapid Framework is not installed.');
 
-use Joomla\Rapid\FlexiContent\Templating\ItemTwigView;
+use Joomla\Rapid\FlexiContent\Templating\ItemView;
 
-echo ItemTwigView::create($this)
+echo ItemView::create($this)
     ->render()
 ;

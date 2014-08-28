@@ -10,8 +10,8 @@
 defined('_JEXEC') or die;
 defined('RAPID_FRAMEWORK') or die('Joomla! Rapid Framework is not installed.');
 
-use Joomla\Rapid\FlexiContent\Templating\CategoryTwigView;
+use Joomla\Rapid\FlexiContent\Templating\CategoryView;
 
-echo CategoryTwigView::create($this)
+echo CategoryView::create($this)
     ->render()
 ;
