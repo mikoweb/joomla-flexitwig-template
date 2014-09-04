@@ -12,7 +12,7 @@
             {# tytuł #}
             <h3 class="category-item-title">{% spaceless %}
                     {% if params.get('link_titles', 0) %}
-                        <a href="{{ flexicontent_route(item.slug, item.categoryslug, 0, item) }}">{{ item.title }}</a>
+                        <a href="{{ flexi_route(item.slug, item.categoryslug, 0, item) }}">{{ item.title }}</a>
                     {% else %}
                         {{ item.title }}
                     {% endif %}
@@ -25,7 +25,7 @@
     <p>{{ fields.text.display|limit_words(params.get('text_limit_words', 25)) }}</p>
     {# czytaj więcej #}
     {% if params.get('show_readmore', 1) %}
-        <a class="btn btn-primary" href="{{ flexicontent_route(item.slug, item.categoryslug, 0, item) }}">{{ trans('FLEXI_READ_MORE') }}</a>
+        <a class="btn btn-primary" href="{{ flexi_route(item.slug, item.categoryslug, 0, item) }}">{{ trans('FLEXI_READ_MORE') }}</a>
     {% endif %}
     {# pluginy #}
     {{ item.event.afterDisplayContent }}
