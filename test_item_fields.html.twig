@@ -1,0 +1,31 @@
+<dl class="dl-horizontal">
+    <dt>{{ fields.title.label }}</dt>
+    <dd>{{ flexi_field(item, 'title') }}</dd>
+    <dt>{{ fields.text.label }}</dt>
+    <dd>{{ flexi_field(item, 'text') }}</dd>
+    <dt>{{ fields.created.label }}</dt>
+    <dd>{{ flexi_field(item, 'created') }}</dd>
+    <dt>{{ fields.created_by.label }}</dt>
+    <dd>{{ flexi_field_html(item, 'created_by') }}</dd>
+    <dt>{{ fields.modified.label }}</dt>
+    <dd>{{ flexi_field(item, 'modified') }}</dd>
+    <dt>{{ fields.hits.label }}</dt>
+    <dd>{{ flexi_field(item, 'hits') }}</dd>
+    <dt>{{ fields.document_type.label }}</dt>
+    <dd>{{ flexi_field_html(item, 'document_type') }}</dd>
+    <dt>{{ fields.version.label }}</dt>
+    <dd>{{ flexi_field(item, 'version') }}</dd>
+    <dt>{{ fields.state.label }}</dt>
+    <dd>{{ flexi_field_html(item, 'state') }}</dd>
+    <dt>{{ fields.voting.label }}</dt>
+    <dd>{{ flexi_field_html(item, 'voting') }}</dd>
+    <dt>{{ fields.favourites.label }}</dt>
+    <dd>{{ flexi_field_html(item, 'favourites') }}</dd>
+    <dt>{{ fields.categories.label }}</dt>
+    <dd>{{ flexi_field_html(item, 'categories') }}</dd>
+    <dt>{{ fields.tags.label }}</dt>
+    <dd>{{ flexi_field_html(item, 'tags') }}</dd>
+    {% set test = flexi_field(item, 'test', null) %}
+    <dt>{{ fields.test.label }}</dt>
+    <dd>{% for test_val in test %}{{ test_val }} {% endfor %}</dd>
+</dl>
