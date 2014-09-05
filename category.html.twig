@@ -1,5 +1,44 @@
 {% extends template_base ~ '/category_layout.html.twig' %}
 
+{% macro select_field(label, field) %}
+    <div class="form-group">
+        <label class="col-sm-4 control-label" for="filteringForm_{{ field[0].attr.id }}">{{ label }}</label>
+        <div class="col-sm-6">
+            <select class="form-control" name="{{ field[0].attr.name }}" id="filteringForm_{{ field[0].attr.id }}">
+                {% for option in field[0].values %}
+                    <option value="{{ option.value }}"{% if option.selected %} selected{% endif %}>{{ option.text|replace({'FLEXI_PER_PAGE': ''}) }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+{% endmacro %}
+
+{# formularz #}
+{% block filtering_form %}
+    <fieldset class="navbar navbar-default">
+        <div class="navbar-form">
+            <div class="input-group">
+                <input type="text" name="filter" class="form-control" placeholder="{{ trans('RAPID_THEME_SEARCH_PLACEHOLDER') }}" value="{{ lists.filter }}">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> {{ trans('FLEXI_SEARCH') }}</button>
+                </span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="filteringForm_alphamenu" style="margin-bottom: 20px">
+        {% set alphacharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','y','z'] %}
+        <button type="button" class="btn{% if letter == '' %} btn-primary{% endif %}" onclick="document.getElementById('alpha_index').value=''; this.form.submit();">all</button>
+        {% for char in alphacharacters %}
+            <button type="button" class="btn{% if letter == char %} btn-primary{% endif %}"{% if char not in alpha %} disabled{% endif %}{% if char in alpha %} onclick="document.getElementById('alpha_index').value='{{ char }}'; this.form.submit();"{% endif %}>{{ char }}</button>
+        {% endfor %}
+    </fieldset>
+    <fieldset class="form-horizontal">
+        {{ _self.select_field(trans('FLEXI_SEARCH_SEARCHWORDS') ~ ':', form_stdfields.searchphrase) }}
+        {{ _self.select_field(trans('COM_SEARCH_ORDERING'), form_stdfields.orderby) }}
+        {{ _self.select_field('Limit:', form_stdfields.limit) }}
+    </fieldset>
+{% endblock %}
+
 {# lista wpisów #}
 {% block items %}
     {% for item in items %}
