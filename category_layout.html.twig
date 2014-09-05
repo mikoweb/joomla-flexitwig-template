@@ -1,4 +1,25 @@
-{# widok kategorii #}
+<section class="category-view-filtering">
+    <div class="page-header">
+        <h2>{% spaceless %}{{ trans('FLEXI_SEARCH_FILTERING') }}{% endspaceless %}</h2>
+    </div>
+    {# formularz do filtrowania wpisów #}
+    <form role="search" action="{{ action }}" method="post" id="filteringForm">
+        {% block filtering_form %}{% endblock %}
+        {% if jinput_clayout == params.get('clayout', 'twig-sample') %}
+            <input type="hidden" name="clayout" value="{{ jinput_clayout }}" />
+        {% endif %}
+        <input type="hidden" name="option" value="com_flexicontent" />
+        <input type="hidden" name="filter_order" value="{{ lists.filter_order }}" />
+        <input type="hidden" name="filter_order_Dir" value="{{ lists.filter_order_Dir }}" />
+        <input type="hidden" name="view" value="category" />
+        <input type="hidden" name="letter" value="{{ letter }}" id="alpha_index" />
+        <input type="hidden" name="task" value="" />
+        <input type="hidden" name="cid" value="{{ category.id }}" />
+        <input type="hidden" name="layout" value="{{ layout }}" />
+    </form>
+</section>
+
+{# widok wpisów w kategorii #}
 <section class="category-view">
     {# tytuł strony #}
     {% if params.get('show_page_heading', 1) %}
