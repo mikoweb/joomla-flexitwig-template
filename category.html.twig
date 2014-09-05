@@ -37,6 +37,12 @@
         {{ _self.select_field(trans('COM_SEARCH_ORDERING'), form_stdfields.orderby) }}
         {{ _self.select_field('Limit:', form_stdfields.limit) }}
     </fieldset>
+   {#
+    # Dodatkowe pola
+    # np.
+    # <label>{{ form_fields.moje_pole.label }}</label>
+    # <input name="{{ form_fields.moje_pole.data[0].attr.name }}" id="{{ form_fields.moje_pole.data[0].attr.id }}" value="{{ form_fields.moje_pole.data[0].values[0] }}">
+    #}
 {% endblock %}
 
 {# lista wpisów #}
