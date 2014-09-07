@@ -26,6 +26,11 @@
     {% endif %}
     {# pluginy #}
     {{ item.event.afterDisplayTitle }}
+    {# miniatura #}
+    {% set thumb = flexi_picture(item, 'image', 'thumb') %}
+    {% if thumb is not empty %}
+        {{ thumb|raw }}
+    {% endif %}
     {# Treść #}
     <p>{{ flexi_field(item, 'text')|limit_words(params.get('text_limit_words', 25)) }}</p>
     {# czytaj więcej #}

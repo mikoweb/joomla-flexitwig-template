@@ -20,6 +20,11 @@
     {% endif %}
     {# pluginy #}
     {{ item.event.afterDisplayTitle }}
+    {# ilustracja #}
+    {% set image = flexi_picture(item, 'image', 'image') %}
+    {% if image is not empty %}
+        {{ image|raw }}
+    {% endif %}
     {# Treść #}
     {{ flexi_field(item, 'text')|raw }}
     {# pluginy #}
