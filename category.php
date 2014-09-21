@@ -11,6 +11,7 @@ defined('_JEXEC') or die;
 defined('RAPID_FRAMEWORK') or die('Joomla! Rapid Framework is not installed.');
 
 use Joomla\Rapid\FlexiContent\Templating\CategoryView;
+use Joomla\RapidApp\App;
 
 $container = App::container();
 $view = CategoryView::create($this);
