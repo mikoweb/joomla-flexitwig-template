@@ -12,6 +12,7 @@ defined('RAPID_FRAMEWORK') or die('Joomla! Rapid Framework is not installed.');
 
 use Joomla\Rapid\FlexiContent\Templating\CategoryView;
 
-echo CategoryView::create($this)
-    ->render()
-;
+$container = App::container();
+$view = CategoryView::create($this);
+$view->setHeadContent($container->get('document'));
+echo $view->render();
