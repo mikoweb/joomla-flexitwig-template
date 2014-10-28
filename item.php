@@ -11,7 +11,9 @@ defined('_JEXEC') or die;
 defined('RAPID_FRAMEWORK') or die('Joomla! Rapid Framework is not installed.');
 
 use Joomla\Rapid\FlexiContent\Templating\ItemView;
+use Joomla\RapidApp\App;
 
-echo ItemView::create($this)
-    ->render()
-;
+$container = App::container();
+$view = ItemView::create($this);
+$view->setHeadContent($container->get('document'));
+echo $view->render();
